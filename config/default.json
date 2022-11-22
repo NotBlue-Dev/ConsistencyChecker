@@ -1,0 +1,9 @@
+{
+    "echoArena": {
+        "ip": "127.0.0.1",
+        "port": 6721,
+        "onEmote": false,
+        "onRelease":true,
+        "onGoal":true
+    }
+}

@@ -2,7 +2,7 @@
   "name": "consistencychecker",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +17,8 @@
     "electron": "^21.3.0",
     "electron-reload": "^2.0.0-alpha.1",
     "three": "^0.146.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.28.0"
   }
 }

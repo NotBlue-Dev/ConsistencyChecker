@@ -1,3 +1,19 @@
+/* eslint-disable no-undef */
+
+window.addEventListener('DOMContentLoaded', () => {
+    api.on('echoArena.eventsLoaded', () => {
+        console.log('eventsLoaded');
+    });
+    
+    api.on('echoArena.connected', () => {
+        console.log('connected');
+    });
+    
+    api.on('echoArena.connectionFailed', () => {
+        console.log('connectionFailed');
+    });
+});
+
 let scene = new THREE.Scene();
 let aspectRatio = window.innerWidth / window.innerHeight;
 let camera = new THREE.PerspectiveCamera(75, aspectRatio, 1, 10000);
