@@ -26,9 +26,6 @@ class mainManager {
                 };
 
                 this.configLoader.save(this.globalConfig);
-                this.obsClient.send('GetSourcesList').then(() => {
-                    this.obsClient.refreshAll();
-                });
             }).catch((error) => {
                 this.eventEmitter.send('echoArena.connectionFailed', {
                     args,

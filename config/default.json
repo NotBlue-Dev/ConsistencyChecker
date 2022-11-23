@@ -1,6 +1,6 @@
 {
     "echoArena": {
-        "ip": "127.0.0.1",
+        "ip": "192.168.1.104",
         "port": 6721,
         "onEmote": false,
         "onRelease":true,

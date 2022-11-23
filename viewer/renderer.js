@@ -3,10 +3,18 @@
 window.addEventListener('DOMContentLoaded', () => {
     api.on('echoArena.eventsLoaded', () => {
         console.log('eventsLoaded');
+        api.send('echoArena.connect', {
+            ip: "192.168.1.104",
+            port: 6721
+        });
     });
     
     api.on('echoArena.connected', () => {
         console.log('connected');
+    });
+
+    api.on('three.render', () => {
+        console.log('render');
     });
     
     api.on('echoArena.connectionFailed', () => {

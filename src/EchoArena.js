@@ -16,7 +16,9 @@ class EchoArena {
     }
 
     async testConnection() {
+        console.log(`Testing connection to ${this.ip}:${this.port}`);
         try {
+            
             await fetch(`http://${this.ip}:${this.port}/session`);
             this.eventEmitter.send('echoArena.connected');
             return true;
@@ -36,7 +38,7 @@ class EchoArena {
 
     request() {
         fetch(`http://${this.ip}:${this.port}/session`).then(resp => resp.json()).then(json => {
-            const gameData = new GameData(json, this.vrmlInfo, this.customData, true);
+            const gameData = new GameData(json);
             events.forEach((event) => {
                 event.handle(gameData, this.eventEmitter);
             });
