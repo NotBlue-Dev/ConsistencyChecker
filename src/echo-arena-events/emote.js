@@ -4,7 +4,7 @@ class emote {
     }
 
     handle(gameData, eventEmitter) {
-        console.log(gameData.emote, this.emote);
+
         if(this.emote === gameData.emote) {
             return;
         }
@@ -12,7 +12,8 @@ class emote {
         if (gameData.emote === false) {
             this.emote = false;
         } else {
-            eventEmitter.send('three.render', "le set de données");
+            eventEmitter.send('three.render', "emote");
+            console.log("emote");
             this.emote = true;
         }
     }

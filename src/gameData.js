@@ -5,15 +5,17 @@ class GameData {
         this.lastThrow = json.last_throw;
         this.emote = false;
         this.scorerName = json.person_scored;
+        this.lastScore = json.last_score;
         this.discPos = json.disc.position;
-        this.r = json.teams[0].players[0].rhand.pos;
-
-        json.teams.forEach(team => {
-            team.players.forEach(player => {
-                if(player.name === this.client) {
-                    this.emote = player.is_emote_playing;
-                }
-            });
+        this.teams = json.teams;
+        this.teams.forEach(team => {
+            if(team.players !== undefined) {
+                team.players.forEach(player => {
+                    if(player.name === this.client) {
+                        this.emote = player.is_emote_playing;
+                    }
+                });
+            }
         });
     }
 }

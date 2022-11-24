@@ -7,17 +7,20 @@
  */
 class goal {
     constructor() {
-        this.scorerName = null;
+        this.lastScore = null;
     }
 
     handle(gameData, eventEmitter) {
-        if(this.scorerName === gameData.scorerName) {
+        if(JSON.stringify(this.lastScore) === JSON.stringify(gameData.lastScore)) {
             return;
         }
-        if(this.scorerName == gameData.client) {
-            eventEmitter.send('three.render', "le set de données");
+
+        if(this.lastScore !== null) {
+            console.log("score");
+            eventEmitter.send('three.render', "score");
         }
-        this.scorerName = gameData.scorerName;
+
+        this.lastScore = gameData.lastScore;
     }
 }
 

@@ -13,8 +13,8 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log('connected');
     });
 
-    api.on('three.render', () => {
-        console.log('render');
+    api.on('three.render', (args) => {
+        console.log('render', args);
     });
     
     api.on('echoArena.connectionFailed', () => {

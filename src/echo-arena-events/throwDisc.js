@@ -2,11 +2,21 @@
 
 class throwDisc {
     constructor() {
-        this.scorerName = null;
+        this.lastThrow = null;
     }
 
-    handle(gameData) {
-        // console.log(gameData.r);
+    handle(gameData, eventEmitter) {
+        // create a function to compare two objetcs (gameData.lastThrow and this.lastThrow) 
+        if(JSON.stringify(this.lastThrow) === JSON.stringify(gameData.lastThrow)) {
+            return;
+        }
+
+        if(this.lastThrow !== null) {
+            console.log("throw");
+            eventEmitter.send('three.render', "throw");
+        }
+
+        this.lastThrow = gameData.lastThrow;
     }
 }
 

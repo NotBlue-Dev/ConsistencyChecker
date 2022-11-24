@@ -18,7 +18,6 @@ class EchoArena {
     async testConnection() {
         console.log(`Testing connection to ${this.ip}:${this.port}`);
         try {
-            
             await fetch(`http://${this.ip}:${this.port}/session`);
             this.eventEmitter.send('echoArena.connected');
             return true;
@@ -44,6 +43,7 @@ class EchoArena {
             });
             this.request();
         }).catch(error => {
+            console.error(error);
             if (error.response) {
                 if (error.response.status === 404) {
                     this.eventEmitter.send('echoArena.notFound');
